@@ -1,0 +1,16 @@
+1. Pip install Pillow
+
+2. settings.py =	MEDIA_URL = '/media/'
+			MEDIA_ROOT = BASE_DIR / 'media'
+
+3.Image = models.ImageField(upload_to = 'images/')
+
+4. in Views.py = form = ImageUploadForm(request.POST, request.FILES)
+
+5. in forms.html = <form method="post" enctype="multipart/form-data">
+
+6. in pro.urls = 	from django.conf import settings
+			from django.conf.urls.static import static
+
+
+			 [urls]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

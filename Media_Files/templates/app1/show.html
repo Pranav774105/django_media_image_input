@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+    {% block title %}
+        <title>Show</title>
+    {% endblock %}
+
+    {% block content %}
+    <table class="table table-success table-striped" >
+        <thead>
+            <tr>
+                <th>Student ID</th>
+                <th>Student Name</th>
+                <th>Student Roll</th>
+                <th>Student Photo</th>
+                <th>Update</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for i in obj %}
+            <tr>
+                <td>{{i.Id}}</td>
+                <td>{{i.Name}}</td>
+                <td>{{i.Roll}}</td>
+                <td><img src="{{ i.Image.url }}"></td>
+                <td><a href="{% url 'update_url' i.Id %}" class="btn btn-outline-secondary">Update</a></td>
+                <td><a href="{% url 'delete_url' i.Id %}" class="btn btn-outline-danger">Delete</a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% endblock %}

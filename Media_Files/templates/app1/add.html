@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+    {% block title %}
+        <title>Title</title>
+    {% endblock %}
+
+    {% block content %}
+    <div>
+        <form method="post", enctype="multipart/form-data">
+            {% csrf_token %}
+            {{form|crispy}}
+            <input class="btn btn-primary" type="submit" value="Submit">
+            <input type="reset" class="btn btn-success" value="Reset">
+
+        </form>
+    </div>
+    {% endblock %}
